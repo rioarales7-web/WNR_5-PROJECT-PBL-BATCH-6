@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --warna-krem: #faf7f0;
+  --warna-permukaan: #ffffff;
+  --warna-permukaan-sekunder: #f3efe6;
+  --warna-garis: #e5e0d5;
+  --warna-hijau-tua: #14452f;
+  --warna-biru-laut: #0f5c6e;
+  --warna-oranye: #ea580c;
+  --warna-teks: #102119;
+  --warna-teks-redup: #53665c;
+  --kurva-halus: cubic-bezier(0.16, 1, 0.3, 1);
+  --font-tampilan: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-isi: 'DM Sans', system-ui, sans-serif;
+  --font-angka: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.dark {
+  --warna-krem: #0b1411;
+  --warna-permukaan: #12201b;
+  --warna-permukaan-sekunder: #162923;
+  --warna-garis: #19382e;
+  --warna-teks: #edf5f0;
+  --warna-teks-redup: #9ab0a4;
+}
+
+body {
+  background-color: var(--warna-krem);
+  color: var(--warna-teks);
+  font-family: var(--font-isi);
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 220ms var(--kurva-halus),
+    color 220ms var(--kurva-halus);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-tampilan {
+  font-family: var(--font-tampilan);
+}
+
+.angka-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.gradasi-maritim {
+  background: linear-gradient(135deg, var(--warna-hijau-tua) 0%, var(--warna-biru-laut) 100%);
+}
+
+.tombol-halus {
+  transition:
+    transform 180ms var(--kurva-halus),
+    background-color 180ms var(--kurva-halus),
+    border-color 180ms var(--kurva-halus),
+    box-shadow 180ms var(--kurva-halus),
+    opacity 180ms var(--kurva-halus);
+}
+
+.tombol-halus:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+@keyframes munculSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animasi-teks-slide {
+  animation: munculSlide 480ms var(--kurva-halus) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  .tombol-halus {
+    transition: none;
+  }
+
+  .animasi-teks-slide {
+    animation: none;
+  }
+}

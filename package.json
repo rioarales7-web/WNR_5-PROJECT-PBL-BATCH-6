@@ -1,0 +1,51 @@
+{
+  "name": "agro-maritim",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n SERVER,CLIENT -c green,cyan \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "node --watch server/server.js",
+    "dev:client": "vite client --config client/vite.config.js --port=5000 --host=0.0.0.0",
+    "build": "vite build client --config client/vite.config.js",
+    "start": "node server/server.js",
+    "preview": "vite preview client --config client/vite.config.js --port=5000 --host=0.0.0.0",
+    "lint": "eslint client/src server/src",
+    "format": "prettier --write \"client/src/**/*.{js,jsx,css}\" \"server/src/**/*.js\""
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "eslint": "^10.15.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.7.4",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "multer": "^2.5.0",
+    "mysql2": "^3.24.6",
+    "pdfkit": "^0.20.2",
+    "prettier": "^3.10.1",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "react-router-dom": "^7.18.5",
+    "vite": "^8.3.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^10.0.7",
+    "esbuild": "^0.28.2",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2"
+  }
+}
